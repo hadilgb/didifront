@@ -1,0 +1,30 @@
+.cards{
+    margin-left: 20px;
+}
+.home .cards .card{
+    height : 150px;
+    width : 280px;
+    border-radius: 0;
+    border: none;
+    margin-left: 20px;
+    display: inline-block;
+    transition: var(--trans-05);
+}
+.home .cards .c1{
+    background-color: #8862E0;
+}
+.home .cards .c2{
+    background-color: #19D895;
+}
+.home .cards .c3{
+    background-color: #2196F3;
+}
+.home .cards .c4{
+    background-color: #FFAF00;
+}
+.textt{
+    font-size: 16px;
+    font-weight: bold;
+    color: #f6f5ff;
+    margin-left: 20px;
+}

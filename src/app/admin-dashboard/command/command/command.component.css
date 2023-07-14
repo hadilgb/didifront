@@ -1,0 +1,18 @@
+.card{
+    height: auto;
+    width: 800px;
+    border: 1px solid #bbb;
+    margin-top: 5px;
+    padding: 10px;
+    margin-left: 200px;
+}
+.btn{
+    width: 100px;
+    color: #fff;
+}
+.btn1{
+    background-color: rgb(18, 205, 143);
+}
+.btn2{
+    background-color: rgb(235, 59, 32);
+}

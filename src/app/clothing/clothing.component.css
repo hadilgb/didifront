@@ -1,0 +1,124 @@
+.browse{
+    font-family: cursive;
+ margin-left: 15px;
+ z-index: 1;
+
+
+}
+.img_card{
+  height : 200px;
+  z-index: 1;
+}
+.card_nom{
+  font-weight: bold;
+  z-index: 1;
+}
+.div_nom:hover{
+  text-decoration: underline;
+}
+.btn:hover  {
+  background-color: #fdd02d;
+}
+.btn{
+  background-color: #FFD740;
+  color: #fff;
+  border:2px solid  #FFD740;
+  border-radius: 50px;
+  margin-left: 50px;
+  z-index: 1;
+}
+.card2{
+  background-color: #fff;
+  box-shadow:8px 5px 5px #9a9898;
+  margin: 17px;
+  padding: 10px;
+  z-index: 1;
+}
+::ng-deep .owl-theme .owl-dots .owl-dot span {
+  background: #8d8b8b!important; /* dots color*/
+}
+::ng-deep .owl-theme .owl-dots .owl-dot.active span,
+ .owl-theme .owl-dots .owl-dot:hover span {
+   background: #FCAC45!important; /*active and on hover color*/
+ }
+.card_container{
+  background-color: #eeeded8e;
+  z-index: 1;
+}
+.card3{
+    margin: auto;
+    z-index: 1;
+}
+.img_card3{
+  border-radius: 10px;
+  width:60px;
+  height: 100px;
+  box-shadow:5px 2px 2px #9a9898;
+  z-index: 1;
+}
+.browsetitle1{
+  font-weight: bold;
+  padding-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+}
+.browsetitle{
+  font-weight: bold;
+  margin-left: 600px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+}
+h1 {
+  font-weight: bold;
+  padding-left: 350px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+}
+.cat{
+    color: #a19e9e;
+    padding-left: 110px;
+    margin-top: -40px;
+    z-index: 1;
+}
+.card {
+  margin: 17px;
+  border: none;
+  display: inline-block;
+  flex-grow: 1;
+  flex-wrap:wrap;
+  padding-left: 20px;
+  z-index: 1;
+}
+.card_img:hover {
+  box-shadow: 3px 3px 3px #9a9898;
+  cursor: pointer;
+}
+.card_img{
+  width: 160px;
+  height: 180px;
+  border-radius: 30px;
+  z-index: 1;
+}
+.card_text{
+  text-align: center;
+  font-size : small;
+  font-weight: bold;
+  padding: 5px;
+  z-index: 1;
+}
+.card_text:hover{
+  text-decoration: underline;
+}
+.card_img:hover + .card_text{
+  text-decoration: underline;
+}
+body .add_to_cart {
+  background-color: #dc4848;
+  width: 500px;
+  height: 500px;
+  position:relative;
+  z-index:2;
+}

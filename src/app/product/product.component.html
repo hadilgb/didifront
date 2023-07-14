@@ -1,0 +1,10 @@
+<button type="button" class="btn btn-primary mr-4" (click)="getProducts()">Get</button>
+  <table class="table table-hover table-striped table-responsive-md">
+    <tr *ngFor="let prod of products">
+        <td>{{prod.name}}</td>
+        <td>{{prod.quantity}}</td>
+        <td>{{prod.category}}</td>
+        <td>hello</td>
+    </tr>
+    </table>
+  

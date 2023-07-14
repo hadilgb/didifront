@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title></title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+<body id="hold" class="hadi">
+    <nav class="sidebar">
+    <div class="menu-bar">
+        <div class="menu">
+            <ul class="menu-links">
+                <li class="nav-link">
+                 <a href="#" routerLink="/user-dash">
+                    <i class='bx bxs-user icon'></i>
+                     <span class="text nav-text">Profile</span>
+                 </a>
+                </li>
+               
+                   <li class="nav-link">
+                    <a  routerLink="/user-dash/commandes">
+                        <i class='bx bx-package icon'></i>
+                        <span class="text nav-text">My Orders</span>
+                    </a>
+                   </li>
+                   <li class="nav-link">
+                    <a routerLink="/user-dash/reclamation">
+                        <i class='bx bx-comment-dots icon'></i>
+                        <span class="text nav-text">My Complaints</span>
+                    </a>
+                   </li>
+                  
+                 </ul>
+        </div>
+        <div class="bottom-content">
+            
+            <li class="nav-link" (click)="logout()">
+                    <a>
+                    
+                <i class='bx bx-log-out-circle icon' ></i>
+                <span class="text nav-text">Logout</span>
+                
+            </a>
+            </li>
+             
+            
+        </div>
+    </div>
+
+</nav>
+
+<section class="home">
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</section>
+
+</body>
+</html>

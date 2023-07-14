@@ -1,0 +1,48 @@
+<div class="contenue">
+    <h3>Your Orders</h3>
+<HR>
+<mat-tab-group animationDuration="0ms">
+  <mat-tab label="Successful Orders">
+  <div class="cart-item" *ngFor="let item of commandAccepted">
+    <div class="product-name" *ngFor="let x of item.lignes">
+    <div class="card">
+        <img src="{{x.image}}" alt="" class="img">
+        <h2>Produit du commandes: {{ x.nomprod }}</h2>
+        <h5>Quantité du Produit{{ x.quantite }}</h5>
+        <h5>Prix du Produit: {{ x.prixtotale }}</h5>
+        <div class="etat1">{{item.etat}}</div>
+        <h4>Le {{ item.date }}</h4>
+    </div>
+    </div>
+  </div>
+</mat-tab>
+  <mat-tab label="On hold Orders">
+    <div class="cart-item" *ngFor="let item of commandItems">
+      <div class="product-name" *ngFor="let x of item.lignes">
+      <div class="card">
+          <img src="{{x.image}}" alt="" class="img">
+          <h2>Produit du commandes: {{ x.nomprod }}</h2>
+          <h5>Quantité du Produit{{ x.quantite }}</h5>
+          <h5>Prix du Produit: {{ x.prixtotale }}</h5>
+          <div class="etat2">{{item.etat}}</div>
+          <h4>Le {{ item.date }}</h4>
+      </div>
+      </div>
+    </div>
+  </mat-tab>
+  <mat-tab label="Failed Orders">
+    <div class="cart-item" *ngFor="let item of commandRefused">
+      <div class="product-name" *ngFor="let x of item.lignes">
+      <div class="card">
+          <img src="{{x.image}}" alt="" class="img">
+          <h2>Produit du commandes: {{ x.nomprod }}</h2>
+          <h5>Quantité du Produit{{ x.quantite }}</h5>
+          <h5>Prix du Produit: {{ x.prixtotale }}</h5>
+          <div class="etat3">{{item.etat}}</div>
+          <h4>Le {{ item.date }}</h4>
+      </div>
+      </div>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+</div>

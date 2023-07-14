@@ -1,0 +1,28 @@
+.mdc-data-table__table{
+    min-width: 100px;
+    width: calc(100% - 20px);
+    margin-left: 10px;
+}
+.mat-mdc-input-element{
+    margin-bottom: 2px;
+    height: 60px;
+    width: 600px;
+}
+.ng-tns-c128-1{
+    margin: 10px;
+    
+    height: 70px;
+    width: 600px;
+}
+.mat-mdc-paginator-outer-container{
+    width: 600px;
+}
+.btn2{
+    color: rgb(246, 58, 58);
+}
+.btn1{
+    color: rgb(58, 246, 136);
+}
+.btn3{
+    color: rgb(58, 111, 246);
+}

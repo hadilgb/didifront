@@ -1,0 +1,120 @@
+<html>
+    <head>
+        <title></title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    </head>
+<body id="hold" class="hadi">
+    <nav class="sidebar close">
+    <header>
+        <div class="image-text">
+            <span class="image">
+                <img src="../../assets/img/admin.jpg" alt="">
+            </span>
+            <div class="text header-text">
+                <span class="name">Montassar zorgani</span>
+                <span class="profession">Admin</span>
+            </div>
+        </div>
+        <i class='bx bx-chevron-right toggle'></i>
+    </header>
+    <div class="menu-bar">
+        <div class="menu">
+            <li class="search-box">
+                <i class='bx bx-search-alt-2 icon' ></i>
+                <input type="search" placeholder="Search...">            
+            </li>
+            <ul class="menu-links">
+                <li class="nav-link">
+                 <a href="#" routerLink="/Dashboard-Admin">
+                     <i class="bx bx-home-alt icon"></i>
+                     <span class="text nav-text">Dashboard</span>
+                 </a>
+                </li>
+               
+                   <li class="nav-link">
+                    <a  routerLink="/Dashboard-Admin/prod">
+                        <i class='bx bx-folder icon'></i>
+                        <span class="text nav-text">Products</span>
+                    </a>
+                   </li>
+                   <li class="nav-link">
+                    <a routerLink="/Dashboard-Admin/categories">
+                        <i class='bx bx-category icon'></i>
+                        <span class="text nav-text">Categories</span>
+                    </a>
+                   </li>
+                   <li class="nav-link">
+                    <a routerLink="/Dashboard-Admin/commands">
+                        <i class='bx bx-package icon'></i>
+                        <span class="text nav-text">Orders</span>
+                    </a>
+                   </li>
+                   <li class="nav-link">
+                    <a routerLink="/Dashboard-Admin/clients">
+                        <i class='bx bx-package icon'></i>
+                        <span class="text nav-text">Clients</span>
+                    </a>
+                   </li>
+                   
+                   
+                   
+            </ul>
+        </div>
+        <div class="bottom-content">
+            
+            <li class="nav-link" (click)="logout()">
+                    <a>
+                    
+                <i class='bx bx-log-out-circle icon' ></i>
+                <span class="text nav-text">Logout</span>
+                
+            </a>
+            </li>
+               <li class="mode">
+                <div class="moon-sun">
+                    <i class='bx bx-moon icon moon' ></i>
+                    <i class='bx bx-sun icon sun' ></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+             </li>
+            
+        </div>
+    </div>
+
+</nav>
+
+<section class="home">
+    <div class="navbar">
+        <button mat-icon-button [matMenuTriggerFor]="fav" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon matBadgeColor="warn" matBadge="2"  matBadgeSize="small" matBadgePosition="above after">notifications_outlined</mat-icon>
+          </button>
+          <mat-menu #fav="matMenu" >
+            <div mat-menu-item *ngFor="let rec of recs"> 
+                <button mat-icon-button color="warn" (click)="remove(rec.idrec)">
+                    <mat-icon>clear</mat-icon>
+                  </button>
+                {{rec.message}}
+                <hr class="hr_icon"> 
+            </div>
+            
+            </mat-menu>
+        <div class="image-text">
+            <span class="image">
+                <img src="../../assets/img/profil.jpg" alt="">
+            </span>
+            <div class="header-text">
+                <span class="name">Montassar zorgani</span>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+
+
+<h4 class="browse">MARKET ></h4> <h4 class="cat">Home </h4>
+<h1 class="browsetitle1">Home Store : Decor, kitchenware & more</h1>
+
+<a  *ngFor="let cat of categories" routerLink="/listProduit" [queryParams]="{ categoryId: cat.subcategorieid }">
+    <div class="card" >
+    <img class="card_img" src={{cat.image}}>
+    <p class="card_text">  {{cat.nom}} </p>
+    </div>
+</a>
+
+    <h2 class="browsetitle">Shop By Room</h2>
+    <div class="card2" *ngFor="let room of rooms">
+        <img class="card_img2" src={{room.src}}>
+        <p class="card_text2">  {{room.title}} </p>
+    </div>

@@ -1,0 +1,40 @@
+<br>
+<mat-form-field style=" margin-left:5%;display: flex; justify-content: flex-end; width: 90%;">
+  <input matInput  placeholder="Filter">
+</mat-form-field>
+<div class="mat"style=" width: 90%; margin-left: 5%;">
+    
+  <table mat-table [dataSource]="users">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> id client </th>
+      <td mat-cell *matCellDef="let element"> {{element.userid }} </td>
+    </ng-container>
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> nom client </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom }} </td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> email client </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+    <ng-container matColumnDef="telephone">
+      <th mat-header-cell *matHeaderCellDef> telephone </th>
+      <td mat-cell *matCellDef="let element"> {{element.telephone}} </td>
+    </ng-container>
+    
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>actions </th>
+      <td mat-cell *matCellDef="let element">
+        <div style="display: flex;color:red;"><button mat-icon-button class="btn1"  >
+          <mat-icon>block</mat-icon>
+        </button>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator style="width: 98.5%;margin-left: 10px;"  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+

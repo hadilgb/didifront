@@ -1,0 +1,44 @@
+
+<h4 class="browse">MARKET ></h4> <h4 class="cat">Clothing Store - Clothing, Shoes & Accessories </h4>
+<h1 class="browsetitle1">Clothing Store - Clothing, Shoes & Accessories</h1>
+    
+    <div class="card" *ngFor="let cat of categories">
+    <img class="card_img" src={{cat.src}}>
+    <p class="card_text">  {{cat.name}} </p>
+    </div>
+    <h2 class="browsetitle">Swimwear starting at $8</h2>
+<div class="card_container">
+    <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of dynamicSlides">
+      <ng-template  carouselSlide [id]="slide.id">
+        <div class="card2" style="width: 18rem;">
+            <div class="card-body">
+              <img class="img_card" [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+              <div class="div_nom"><h4 class="card_nom">Waist Cover Up</h4>
+              <h5 class="card_nom">27.99 $</h5></div>
+              <button (click)="open_add_to_cart('waist','hhh','ooo')" class="btn">add to Cart</button>
+            </div>
+          </div>
+    
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+<h2 class="browsetitle">Sop By Brands</h2>
+<br><br>
+<div class="card3">
+    <owl-carousel-o [options]="customOptionss">
+    <ng-container *ngFor="let slide of brands">
+      <ng-template  carouselSlide [id]="slide.id">
+            <a href="#">
+              <img class="img_card3" [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+            </a>
+    
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>
+</div>
+
+<div class="add_to_cart" *ngIf="open == true">
+hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+</div>

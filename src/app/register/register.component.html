@@ -1,0 +1,50 @@
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<section> 
+  <div class="form-box">
+    <div class="form-value">
+        
+  <form [formGroup]="registerForm" id="regForm" (ngSubmit)="onSubmit()">
+    <h2>Registre</h2>
+          
+          <!-- One "tab" for each step in the form: -->
+          <div class="tab">
+            <mat-form-field>
+            <p><input matInput placeholder="Nom et prénom" formControlName="nom"></p>
+          </mat-form-field>
+        <mat-form-field>
+           <p><input matInput placeholder="Téléphone" formControlName="telephone"></p>
+          </mat-form-field>
+          </div>
+          
+          <div class="tab">
+          
+            <div class="example-container">
+              <mat-form-field>
+                <input matInput placeholder="Enter your email" formControlName="email" required>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div class="example-container">
+              <mat-form-field>
+                <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+                <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            
+          </div>
+          </div>
+          <div style="overflow:auto;">
+            <div style="float:right;">
+              <button type="reset" id="prevBtn" >Annuler</button>
+              <button type="submit" id="sub" >Inscription</button>
+            </div>
+          </div>
+          
+        </form>   
+   </div>
+  </div> 
+</section>
+

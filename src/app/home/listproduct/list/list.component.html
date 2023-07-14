@@ -1,0 +1,18 @@
+<div class="cards">
+    <div class="card" *ngFor="let product of products">
+        <img class="card-img" [src]="product.imgUrl" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{product.nom}}</p>
+          <p class="card-text">{{product.prixunite}} DT</p>
+          <form (ngSubmit)="addToCart(product.prodid, product.quantity,product.prixunite,product.nom,product.imgUrl)">
+            <div class="form-group">
+              <label for="quantity">Quantity:</label>
+              <input type="number" class="quanti" id="quantity" [(ngModel)]="product.quantity" name="quantity"  min = "1" >
+            </div>
+            <button type="submit" class="btn">Add to Cart</button>
+          </form>
+        </div>
+      </div>
+
+  
+    </div>

@@ -1,0 +1,89 @@
+<br>
+<mat-form-field style=" margin-left:5%;display: flex; justify-content: flex-end; width: 90%;">
+  <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+</mat-form-field>
+<div class="mat"style=" width: 90%; margin-left: 5%;">
+    
+  <table mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="reference">
+      <th mat-header-cell *matHeaderCellDef> id produit </th>
+      <td mat-cell *matCellDef="let element"> {{element.prodid }} </td>
+    </ng-container>
+    <ng-container matColumnDef="categorie">
+      <th mat-header-cell *matHeaderCellDef> categorie produit </th>
+      <td mat-cell *matCellDef="let element"> {{element.categorieid }} </td>
+    </ng-container>
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> nom produit </th>
+      <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+    </ng-container>
+    <ng-container matColumnDef="quantite">
+      <th mat-header-cell *matHeaderCellDef> quantité produit </th>
+      <td mat-cell *matCellDef="let element"> {{element.quantite}} </td>
+    </ng-container>
+    <ng-container matColumnDef="prixunite">
+      <th mat-header-cell *matHeaderCellDef> prix </th>
+      <td mat-cell *matCellDef="let element"> {{element.prixunite}} </td>
+    </ng-container>
+    <ng-container matColumnDef="imgUrl">
+      <th mat-header-cell *matHeaderCellDef> image </th>
+      <td mat-cell *matCellDef="let element">
+        <img [src]="element.imgUrl" alt="Product Image" width="50" height="50">
+      </td>
+    </ng-container>
+    <ng-container matColumnDef="nombreClic">
+      <th mat-header-cell *matHeaderCellDef> nombre clic </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombreClic}} </td>
+    </ng-container>
+    <ng-container matColumnDef="nombrevente">
+      <th mat-header-cell *matHeaderCellDef> nombre vente </th>
+      <td mat-cell *matCellDef="let element"> {{element.nombrevente}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>actions </th>
+      <td mat-cell *matCellDef="let element">
+        <div style="display: flex;"><button mat-icon-button class="btn1" (click)="showUpdateProductForm(element)" >
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button class="btn2" (click)="deleteProduct(element.prodid)">
+          <mat-icon>delete</mat-icon>
+        </button></div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator style="width: 98.5%;margin-left: 10px;"  [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>
+<br>
+<div style="text-align: center;">
+
+  <button mat-raised-button color="primary" (click)="showAddProductForm()" >Ajouter un produit</button>
+</div>
+  <div *ngIf="showAddForm">
+    <app-add-produit></app-add-produit>
+  </div>
+  <div *ngIf="showUpdateForm">
+    <form [formGroup]="produitForm" (ngSubmit)="updateProduct()">
+      <mat-form-field>
+        <input matInput placeholder="Nom du produit" formControlName="nom">
+      </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Quantité" type="number" formControlName="quantite">
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Prix unité" type="number" formControlName="prixunite">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Catégorie</mat-label>
+    <mat-select formControlName="categorieid">
+      <mat-option *ngFor="let categorie of categories" [value]="categorie.nom">
+        {{ categorie.nom }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button type="submit" mat-raised-button color="primary">modifier</button>
+</form>
+
+</div>

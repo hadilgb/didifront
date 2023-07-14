@@ -1,0 +1,347 @@
+
+<div class="slider">
+    <br>
+<ng-image-slider [images]="imgCollection" 
+[imageSize]="{width: 700, height: 350, space: 10}" 
+[infinite]="true"
+[autoSlide]="{interval: 3, stopOnHover: true}"
+[animationSpeed]="0.3"
+[showArrow]="false"
+#nav ></ng-image-slider>
+</div>
+<br><br>
+<div class="line_div">
+<hr class="before"><div class="div_browse div_browse2"><h2 class="browse">Shop departments</h2></div><hr class="after">
+</div>
+<div class="browse_div" *ngFor="let categorie of categories">
+    <a class="browse_button" routerLink="/listsubcategorie" [queryParams]="{ categoryId: categorie.categorieid }">
+    <img mat-card-image class="browse_img" src={{categorie.image}} alt="">
+     <h3 class="browse_text" >{{categorie.nom}}</h3>
+    </a>
+</div>
+<br><br><br><br>
+<div class="line_div">
+    <hr class="before"><div class="div_browse div_browse2"><h2 class="browse">Shop grocery</h2></div><hr class="after">
+    </div>
+    <div class="browse_div" *ngFor="let item of grocery">
+        <a class="browse_button">
+        <img mat-card-image class="browse_img" src={{item.image}} alt="">
+         <h3 class="browse_text" >{{item.nom}}</h3>
+        </a>
+    </div>
+<!--<owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of dynamicSlides">
+      <ng-template  carouselSlide [id]="slide.id">
+       
+        <img [src]="slide.src" [alt]="slide.alt" [title]="slide.title">
+        <p>helloo</p>
+    
+      </ng-template>
+    </ng-container>
+  </owl-carousel-o>-->
+  <br><br><br>
+  <section class="bg-color">
+    <div class="containers">
+        <div class="title">
+            <p>The Best Seller Of Market</p>
+            <h2><span>Best</span> Seller</h2>
+        </div>
+        <div class="row">   
+
+
+
+
+<owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide>
+      <div class="slide">
+                <div class="card">
+                    <div class="card-main">
+                        <div class="discount">-9%</div>
+                        <div class="label label-green">Pre-order</div>
+                        <div class="product-container">
+                            <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                    alt="Product"></div>
+                            <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                    alt="Product"></div>
+                            <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                    alt="Product"></div>
+                        </div>
+                        <div class="imagee">
+                            <img src="{{url}}" alt="Product">
+                        </div>
+                        <div class="cart-line"></div>
+                        <div class="cart-item">
+                            <ul>
+                                <li><a href=""><i class="fa fa-shopping-basket"><mat-icon>favorite_border</mat-icon></i></a></li>
+                                <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                                <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content">
+                        <a href="#">Incidid Tongue Bar</a>
+                        <div class="rating">
+                            <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                            <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                            <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                            <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                            <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                        </div>
+                        <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                    </div>
+                </div>
+            </div>
+  </ng-template>
+  <ng-template carouselSlide>
+    <div class="slide">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+          </div>
+    
+</ng-template>
+<ng-template carouselSlide>
+    <div class="slide">
+      
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+          </div>
+    
+</ng-template>
+<ng-template carouselSlide>
+    <div class="slide">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+          </div>
+</ng-template>
+<ng-template carouselSlide>
+    <div class="slide">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+          </div>
+</ng-template>
+<ng-template carouselSlide>
+    <div class="slide">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+          </div>
+</ng-template>
+  <ng-template carouselSlide>
+    <div class="slide">
+              <div class="card">
+                  <div class="card-main">
+                      <div class="discount">-9%</div>
+                      <div class="label label-green">Pre-order</div>
+                      <div class="product-container">
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires1.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires.jpg"
+                                  alt="Product"></div>
+                          <div class="p" (mouseover)="imageChange($event)"><img src="./assets/img/accessoires2.jpg"
+                                  alt="Product"></div>
+                      </div>
+                      <div class="imagee">
+                          <img src="{{url}}" alt="Product">
+                      </div>
+                      <div class="cart-line"></div>
+                      <div class="cart-item">
+                          <ul>
+                              <li><a href=""><i class="fa fa-shopping-basket"> <mat-icon>favorite_border</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-heart"><mat-icon>shopping_cart</mat-icon></i></a></li>
+                              <li><a href=""><i class="fa fa-search"><mat-icon>visibility</mat-icon></i></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                  <div class="content">
+                      <a href="#">Incidid Tongue Bar</a>
+                      <div class="rating">
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                          <i class="fa fa-star-o"><mat-icon>star_outline</mat-icon></i>
+                      </div>
+                      <p><span class="money">$81.00</span><span class="price-old">$89.00</span></p>
+                  </div>
+              </div>
+    </div>
+
+</ng-template>
+  </owl-carousel-o>
+</div>
+</div>
+</section>
+<div class="footer">
+    footer
+</div>
+ 
+

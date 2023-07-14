@@ -1,0 +1,24 @@
+<div>
+  <h2>Ajouter un produit</h2>
+  <form [formGroup]="produitForm" (ngSubmit)="addProduct()">
+    <mat-form-field>
+      <input matInput placeholder="Nom du produit" formControlName="nom">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Quantité" type="number" formControlName="quantite">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Prix unité" type="number" formControlName="prixunite">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Catégorie</mat-label>
+      <mat-select formControlName="subcategorieid">
+        <mat-option *ngFor="let categorie of categories" [value]="categorie.subcategorieid ">
+          {{ categorie.nom }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <button type="submit" mat-raised-button color="primary">Ajouter</button>
+  </form>
+</div>

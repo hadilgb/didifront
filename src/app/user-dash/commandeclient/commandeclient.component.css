@@ -1,0 +1,72 @@
+.contenue{
+    background-color: #fff;
+    padding: 10px;
+   min-height: 400px;
+   width: 850px;
+   border-radius: 10px;
+}
+.mat-tab-group {
+    margin-bottom: 48px;
+  }
+.card{
+    height: 135px;
+    width: 800px;
+    border: 1px solid #bbb;
+    margin-top: 5px;
+    padding: 10px;
+}
+.img{
+    height: 100px;
+    width: 100px;
+}
+h2{
+    
+    margin-left: 120px;
+    margin-top: -108px;
+}
+h5{
+    color: #bbb;
+   margin-left: 120px;
+   margin-top: -20px;
+}
+h4{
+    margin-left: 120px;
+}
+.etat1{
+    height: 20px;
+    margin-top: -2px;
+    margin-left: 120px;
+    font-size: small;
+    padding: 2px;
+    width: 100px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #6DBD28;
+}
+.etat2{
+    height: 20px;
+    margin-top: -2px;
+    margin-left: 120px;
+    font-size: small;
+    padding: 2px;
+    width: 60px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #75757A;
+}
+.etat3{
+    height: 20px;
+    margin-top: -2px;
+    margin-left: 120px;
+    font-size: small;
+    padding: 2px;
+    width: 70px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: red;
+}
+h3{
+    margin-left: 20px;
+    font-size: large;
+    font-weight: 500;
+}

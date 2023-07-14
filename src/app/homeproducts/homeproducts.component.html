@@ -1,0 +1,13 @@
+
+<h4 class="browse">MARKET ></h4> <h4 class="cat">Home </h4>
+<h1 class="browsetitle1">Home Store : Decor, kitchenware & more</h1>
+    <div class="card" *ngFor="let cat of categories">
+    <img class="card_img" src={{cat.src}}>
+    <p class="card_text">  {{cat.name}} </p>
+    </div>
+    <h2 class="browsetitle">Shop By Room</h2>
+    <div class="card2" *ngFor="let room of rooms">
+        <img class="card_img2" src={{room.src}}>
+        <p class="card_text2">  {{room.title}} </p>
+    </div>
+

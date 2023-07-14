@@ -1,0 +1,19 @@
+<div>
+    <h2>Ajouter une subcategory</h2>
+    <form [formGroup]="categoryForm" (ngSubmit)="addSubCategory()">
+      <mat-form-field>
+        <input matInput placeholder="Nom du Category" formControlName="nom">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Catégorie</mat-label>
+        <mat-select formControlName="categorieid">
+          <mat-option *ngFor="let categorie of categories" [value]="categorie.categorieid ">
+            {{ categorie.nom }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <input type="file" (change)="onFileSelected($event)" accept="image/*">
+      <button type="submit" mat-raised-button color="primary">Ajouter</button>
+    </form>
+  </div>
+  

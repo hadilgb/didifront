@@ -1,0 +1,150 @@
+
+<div *ngIf="affiche">
+<p>
+    <mat-toolbar class="nav mat-elevation-z4">
+      <mat-toolbar-row>
+        <a routerLink="" class="name">
+          <img src="./assets/img/grocery.png" alt="">
+          MARKET</a>
+        <button class="filter" [matMenuTriggerFor]="cate" > {{category}} <img src="./assets/img/down-arrow.png"> </button>
+        <mat-menu #cate="matMenu">
+          <button mat-menu-item (click)="changer(1)">Clothing</button>
+          <button mat-menu-item (click)="changer(2)">Home</button>
+          <button mat-menu-item (click)="changer(3)">Electronics</button>
+          <button mat-menu-item (click)="changer(4)">furniture</button>
+          </mat-menu>
+        <input type="search" class="search" placeholder="What are you looking for?">
+        <button class="search_filter"><img src="./assets/img/search.png" ></button>
+
+      </mat-toolbar-row>
+      
+      <mat-toolbar-row >
+        <button mat-button class="side_menu" [matMenuTriggerFor]="shop_cat"><mat-icon>menu</mat-icon>SHOP BY CATEGORY</button>
+
+        <mat-menu #shop_cat="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="clothing">CLOTHING</button>
+        <button mat-menu-item [matMenuTriggerFor]="home">HOME</button>
+        <button mat-menu-item [matMenuTriggerFor]="furniture">FURNITURE</button>
+        </mat-menu>
+
+        <mat-menu #clothing="matMenu">
+        <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+        <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+        <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+        <button mat-menu-item>Birds</button>
+        <button mat-menu-item>Mammals</button>
+        </mat-menu>
+
+        <mat-menu #home="matMenu">
+          <button mat-menu-item>Insects</button>
+          <button mat-menu-item>Molluscs</button>
+          <button mat-menu-item>Crustaceans</button>
+          <button mat-menu-item>Corals</button>
+          <button mat-menu-item>Arachnids</button>
+          <button mat-menu-item>Velvet worms</button>
+          <button mat-menu-item>Horseshoe crabs</button>
+        </mat-menu>
+         <mat-menu #furniture="matMenu">
+          <button mat-menu-item>Insects</button>
+          <button mat-menu-item>Molluscs</button>
+          <button mat-menu-item>Crustaceans</button>
+          <button mat-menu-item>Corals</button>
+          <button mat-menu-item>Arachnids</button>
+          <button mat-menu-item>Velvet worms</button>
+          <button mat-menu-item>Horseshoe crabs</button>
+        </mat-menu>
+        
+        <mat-menu #fish="matMenu">
+          <button mat-menu-item>Baikal oilfish</button>
+          <button mat-menu-item>Bala shark</button>
+          <button mat-menu-item>Ballan wrasse</button>
+          <button mat-menu-item>Bamboo shark</button>
+          <button mat-menu-item>Banded killifish</button>
+        </mat-menu>
+        
+<mat-menu #amphibians="matMenu">
+  <button mat-menu-item>Sonoran desert toad</button>
+  <button mat-menu-item>Western toad</button>
+  <button mat-menu-item>Arroyo toad</button>
+  <button mat-menu-item>Yosemite toad</button>
+</mat-menu>
+
+<mat-menu #reptiles="matMenu">
+  <button mat-menu-item>Banded Day Gecko</button>
+  <button mat-menu-item>Banded Gila Monster</button>
+  <button mat-menu-item>Black Tree Monitor</button>
+  <button mat-menu-item>Blue Spiny Lizard</button>
+  <button mat-menu-item disabled>Velociraptor</button>
+</mat-menu>   
+<button mat-button   routerLink="/listsubcategorie" [queryParams]="{ categoryId: cl }">Clothing</button>
+
+        <button mat-button routerLink="/listsubcategorie" [queryParams]="{ categoryId: hp }">Home</button>
+        <button mat-button routerLink="/listsubcategorie" [queryParams]="{ categoryId: hp }" >Electronics</button>
+      
+        <button mat-button>furniture</button>
+        <button mat-button >Deals</button>
+        <span class="example-spacer"></span>
+        
+
+
+
+
+        <button mat-icon-button [matMenuTriggerFor]="compte" class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+            <mat-icon>perm_identity</mat-icon>
+          </button>
+          <mat-menu #compte="matMenu">
+            <div  *ngIf="!loggedIn">
+              <button mat-menu-item routerLink="/login">Login</button>
+              <button mat-menu-item routerLink="/register">New Customer ? <a href="/register">Join now</a></button>
+            </div>
+            <div  *ngIf="loggedIn">
+            <button mat-menu-item (click)="logout()">Logout</button>
+            <button mat-menu-item routerLink="/user-dash/commandes">My Orders</button>
+            <button mat-menu-item routerLink="/user-dash/reclamation">My Complaints</button>
+          </div>
+
+            </mat-menu>
+            <button [matMenuTriggerFor]="cartMenu" mat-icon-button class="example-icon" aria-label="Example icon-button with cart icon">
+              <mat-icon matBadgeColor="accent" matBadge="{{nbrproduit}}" matBadgeSize="small" matBadgePosition="above after">shopping_cart</mat-icon>
+            </button>
+            <mat-menu #cartMenu="matMenu">
+              <ng-container *ngIf="cartItems.length > 0; else emptyCart">
+                <div class="cart-item" *ngFor="let item of cartItems">
+                  <div class="item-info">
+                    <div class="product-image">
+                      <img [src]="item.image" alt="Product Image" class="img-thumbnail" style="width: 100px; height: 100px;">
+                      <button mat-icon-button color="warn" (click)="removeItem(item)">
+                        <mat-icon>clear</mat-icon>
+                      </button>
+                    </div>
+                    <div class="product-name" *ngFor="let x of item.lignes">Produit du commandes: {{ x.nomprod }}
+                      quantite du commandes: {{ x.quantite }}</div>
+                    <div class="product-details">
+                      <div class="product-name">Product Name: {{ item.nomprod }}</div>
+                      <div class="quantity">Quantity: {{ item.quantite }}</div>
+                      <div class="total-price">Total Price: {{ item.prixtotale }}</div>
+                    </div>
+                    <div class="remove-button">
+                      
+                    </div>
+                    <hr class="hr_icon">
+                    
+                  </div>
+                </div>
+                <div class="cart-total">
+                  Total Price: {{ calculateTotalPrice() }}
+                </div>
+                <div class="button-group">
+                  <button class="btn btn-primary place-order-button" (click)="acheter()">Acheter</button>
+                  <button class="btn btn-secondary" (click)="clearCart()">Clear Cart</button>
+                </div>
+              </ng-container>
+              <ng-template #emptyCart>
+                <button mat-menu-item>No items in the cart</button>
+              </ng-template>
+            </mat-menu>
+          </mat-toolbar-row>
+      
+        </mat-toolbar>
+      </p>
+    </div> 

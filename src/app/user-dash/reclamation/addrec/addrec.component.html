@@ -1,0 +1,10 @@
+<div>
+    <h2>Ajouter une Reclamation</h2>
+    <form [formGroup]="recForm" (ngSubmit)="addRec()">
+      <mat-form-field>
+        <input matInput placeholder="Message" formControlName="message">
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Ajouter</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,62 @@
+<div class="contenue">
+  <br><br>
+<mat-tab-group animationDuration="0ms">
+  <hr>
+  <mat-tab label="On hold Orders">
+    <div class="cart-item" *ngFor="let item of commandItems">
+      <div class="card">
+      <div class="product-name" *ngFor="let x of item.lignes">
+        <p class="card-text" >
+                  
+          Nom produit {{x.nom}} <br>
+          Quantité: {{x.quantite}}
+        </p>
+    
+      </div>
+      Prix Totale {{item.prixTT}}
+      <h5 class="card-title">Email Client: {{item.email}}</h5>
+      <h6>Date Commande: {{item.date}}</h6>
+      <a class="btn btn1"  (click)="confirmerCommande(item.idcommande)">Confirm</a>
+      <a  class="btn btn2"  (click)="refuserCommande(item.idcommande)">Decline</a>
+    </div>
+    </div>
+  </mat-tab>
+<mat-tab label="Successful Orders">
+<div class="cart-item" *ngFor="let item of commandAcc">
+  <div class="card">
+  <div class="product-name" *ngFor="let x of item.lignes">
+    <p class="card-text" >
+              
+      Nom produit {{x.nom}} <br>
+      Quantité: {{x.quantite}}
+    </p>
+
+  </div>
+  Prix Totale {{item.prixTT}}
+  <h5 class="card-title">Email Client: {{item.email}}</h5>
+  <h6>Date Commande: {{item.date}}</h6>
+  <a  class="btn btn-warning"  (click)="refuserCommande(item.idcommande)">Decline</a>
+</div>  
+</div>
+</mat-tab>
+
+<mat-tab label="Failed Orders">
+  <div class="cart-item" *ngFor="let item of commandref">
+    <div class="card">
+    <div *ngFor="let ligne of item.lignes">
+     
+      <p class="card-text" >
+                
+        Nom produit {{ligne.nomprod}} <br>
+        Quantité: {{ligne.quantite}}
+      </p>
+  
+    </div>
+    Prix Totale {{item.prixTT}}
+    <h5 class="card-title">Email Client: {{item.email}}</h5>
+    <h6>Date Commande: {{item.date}}</h6>
+  </div>
+  </div>
+</mat-tab>
+</mat-tab-group>
+</div>

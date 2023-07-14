@@ -1,0 +1,29 @@
+<section> 
+  <div class="form-box">
+    <div class="form-value">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h2>Sign in</h2>
+      <div class="input-box">
+        <i class="user"></i>
+        <input type="email" required formControlName="email">
+        <label>Email</label>
+      </div>
+
+      <div class="input-box">
+        
+        <input type="password"  required formControlName="password">
+        <label>Password</label>
+      </div>
+      <div class="forget">
+        <label> <input type="checkbox">Remember me <a href="#">Forget Password ?</a></label>
+      </div>
+     <button class="button" type="submit">Log in</button>
+      <div class="register">
+        <p>New customer ? <a href="#">Join Now </a></p>
+      </div>
+
+      </form>
+   </div>
+  </div> 
+</section>
+
