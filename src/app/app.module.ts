@@ -57,6 +57,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import { ProfileComponent } from './user-dash/profile/profile.component';
 import { AddrecComponent } from './user-dash/reclamation/addrec/addrec.component';
 import { ClientsComponent } from './admin-dashboard/clients/clients.component';
+import { UpdateCategorieComponent } from './admin-dashboard/categorie/update-categorie/update-categorie.component';
 @NgModule({
   declarations: [
     ListproductComponent,
@@ -87,7 +88,8 @@ import { ClientsComponent } from './admin-dashboard/clients/clients.component';
     CommandeclientComponent,
     ProfileComponent,
     AddrecComponent,
-    ClientsComponent
+    ClientsComponent,
+    UpdateCategorieComponent
   ],
   imports: [
     MatDialogModule,

@@ -9,6 +9,9 @@ import { CategorieService } from 'src/app/admin-dashboard/categorie/categorie.se
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { SubcategorieComponent } from './subcategorie/subcategorie.component';
+import { AddCategorieComponent } from './add-categorie/add-categorie.component';
+import { AddSubcategorieComponent } from './add-subcategorie/add-subcategorie.component';
+import { UpdateCategorieComponent } from './update-categorie/update-categorie.component';
 export interface Element {
   categorieId : string;
   nom: string;
@@ -22,6 +25,7 @@ export interface Element {
 })
 export class CategorieComponent {
   @Output() selectedCategoryIdChange = new EventEmitter<string>();
+  @Output() selectedCatId = new EventEmitter<string>();
   selectedCategoryId: string = '';
 
     categorieForm: FormGroup;
@@ -35,9 +39,10 @@ export class CategorieComponent {
     selectedCategorie: any;
     products : any;
     loaded: boolean;
+
     displayedColumns: string[] = [ 'id','nom','image','actions'];
     public dataSource : any = [];
-    constructor(private dialog: MatDialog,private productservice: ProductService,private categorieService: CategorieService,  private location: Location, private formBuilder: FormBuilder,private homeservice : HomeService) {
+    constructor(private dialogup: MatDialog,private dialog: MatDialog,private dialogadd: MatDialog,private productservice: ProductService,private categorieService: CategorieService,  private location: Location, private formBuilder: FormBuilder,private homeservice : HomeService) {
       this.loaded = false;
       this.categorieForm = this.formBuilder.group({
         nom: [''],
@@ -114,7 +119,9 @@ export class CategorieComponent {
       }
     }
     showAddCategorieForm(): void {
-      this.showAddForm = !this.showAddForm; 
+      const test = this.dialogadd.open(AddCategorieComponent,{
+        width: '900px' 
+        }); 
      }
      veiwSubcategorie(id: string): void {
       this.selectedCategoryId = id;
@@ -123,7 +130,9 @@ export class CategorieComponent {
       this.showSubForm = !this.showSubForm; 
      }
     showAddSubcategorieForm(): void {
-      this.showAddsubForm = !this.showAddsubForm; 
+      const test = this.dialogadd.open(AddSubcategorieComponent,{
+        width: '900px' 
+        });  
      }
    showUpdateCategorieForm(categorie: any) {
     this.selectedCategorie = categorie;
@@ -135,30 +144,18 @@ export class CategorieComponent {
     this.showUpdateForm = true;
   }
   
-  updateCategorie() {
-    const updatedCategorie = {
-      categorieid: this.selectedCategorie.categorieid,
-      nom: this.categorieForm.value.nom,
-      image: this.categorieForm.value.image,
-    };
-  
-    this.categorieService.updateCategorie(this.selectedCategorie.categorieid,updatedCategorie).subscribe(
-      () => {
-        
-        window.location.reload();
-      },
-      (error) => {
-        console.log(error);
-        
-      }
-    );
-    this.categorieForm.reset();
-    this.showUpdateForm = false;
-  }
+ 
   openDialog(element: any): void {
     const dialogRef = this.dialog.open(SubcategorieComponent, {
       width: '900px', 
       data: { categorieId: element }
+    });
+  }
+  openDialogg(element: any,el : any,img : any): void {
+    this.selectedCatId.emit(element);
+    const dialogRef = this.dialogup.open(UpdateCategorieComponent, {
+      width: '500px',
+      data : {element,el,img}
     });
   }
 }
