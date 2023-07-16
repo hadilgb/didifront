@@ -1,11 +1,12 @@
 <div class="contenue">
     <h3 class="titre">Your Complaints</h3>
-    
+    <button mat-icon-button class="btn3" (click)="openDialog()">
+        <mat-icon>addcircle</mat-icon>
+    </button>
 
     <div class="cart-item" *ngFor="let item of rec">
         <HR>
     <div class="card">
-        <h2>Object : </h2> <h3 class="objet"> {{item.email}} </h3>
         <p> {{item.message}}</p>
         <div class="etat1">{{item.etat}}</div>
         <h5>{{item.date}}</h5>

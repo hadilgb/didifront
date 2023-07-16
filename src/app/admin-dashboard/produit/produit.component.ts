@@ -1,4 +1,4 @@
-import { Component,ViewChild,OnInit ,ChangeDetectorRef} from '@angular/core';
+import { Component,ViewChild,OnInit ,ChangeDetectorRef, EventEmitter, Output} from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { HomeService } from '../../home/home.service';
@@ -6,6 +6,9 @@ import { HomeService } from '../../home/home.service';
 import {MatPaginator, MatPaginatorDefaultOptions} from '@angular/material/paginator';
 import { ProductService } from 'src/app/product/product.service';
 import { Location } from '@angular/common';
+import { MatDialog } from '@angular/material/dialog';
+import { AddProduitComponent } from './add-produit/add-produit.component';
+import { UpdateProduitComponent } from './update-produit/update-produit.component';
 export interface Element {
   prodid : string;
   categorieid : string;
@@ -23,6 +26,7 @@ export interface Element {
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent implements OnInit{
+  @Output() selectedCatId = new EventEmitter<string>();
   produitForm: FormGroup;
   categories : any;
   categ : Array<Object>=[];
@@ -33,7 +37,7 @@ export class ProduitComponent implements OnInit{
   loaded: boolean;
   displayedColumns: string[] = [ 'reference','categorie','imgUrl','nom', 'nombreClic','nombrevente', 'prixunite','quantite','actions'];
   public dataSource : any = [];
-  constructor(private productservice: ProductService,  private location: Location, private formBuilder: FormBuilder,private homeservice : HomeService) {
+  constructor(private dialogup: MatDialog,private productservice: ProductService,  private location: Location, private formBuilder: FormBuilder,private homeservice : HomeService) {
     this.loaded = false;
     this.produitForm = this.formBuilder.group({
       nom: [''],
@@ -42,7 +46,18 @@ export class ProduitComponent implements OnInit{
       categorieid: ['']
     });
   }
- 
+  openDialogg(element: any,el : any,img : any,pr : any,qt : any): void {
+    this.selectedCatId.emit(element);
+    const dialogRef = this.dialogup.open(UpdateProduitComponent, {
+      width: '500px',
+      data : {element,el,img,pr,qt}
+    });
+  }
+  openDialog(): void {
+    const dialogRef = this.dialogup.open(AddProduitComponent, {
+      width: '500px'
+    });
+  }
  
   ngOnInit() {
     
@@ -84,12 +99,13 @@ export class ProduitComponent implements OnInit{
       this.productservice.deleteItem(id).subscribe(
         () => {
           console.log("here");
-          window.location.reload();
+         
         },
         (error) => {
 
         }
       );
+      window.location.reload();
     }
   }
   showAddProductForm(): void {

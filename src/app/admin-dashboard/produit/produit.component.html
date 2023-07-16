@@ -43,7 +43,7 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef>actions </th>
       <td mat-cell *matCellDef="let element">
-        <div style="display: flex;"><button mat-icon-button class="btn1" (click)="showUpdateProductForm(element)" >
+        <div style="display: flex;"><button mat-icon-button class="btn1" (click)="openDialogg(element.nom,element.categorieid,element.imgUrl,element.prixunite,element.quantite)" >
           <mat-icon>edit</mat-icon>
         </button>
         <button mat-icon-button class="btn2" (click)="deleteProduct(element.prodid)">
@@ -59,7 +59,7 @@
 <br>
 <div style="text-align: center;">
 
-  <button mat-raised-button color="primary" (click)="showAddProductForm()" >Ajouter un produit</button>
+  <button mat-raised-button color="primary" (click)="openDialog()" >Ajouter un produit</button>
 </div>
   <div *ngIf="showAddForm">
     <app-add-produit></app-add-produit>

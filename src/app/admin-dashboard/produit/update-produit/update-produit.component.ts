@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Input } from '@angular/core';
 import { ProductService } from 'src/app/product/product.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HomeService } from '../../../home/home.service';
 import { Router } from '@angular/router';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-produit',
@@ -10,16 +11,17 @@ import { Router } from '@angular/router';
   styleUrls: ['./update-produit.component.css']
 })
 export class UpdateProduitComponent {
+  @Input() selectedCatId :any ; 
   produitForm: FormGroup;
   categories : any;
   categ : Array<Object>=[];
-  constructor(private router: Router,private productService: ProductService, private formBuilder: FormBuilder,private homeservice : HomeService) {
+  constructor(@Inject(MAT_DIALOG_DATA)  data : any,private router: Router,private productService: ProductService, private formBuilder: FormBuilder,private homeservice : HomeService) {
     this.produitForm = this.formBuilder.group({
-      nom: ['', Validators.required],
-      quantite: [0, Validators.required],
-      prixunite: [0, Validators.required],
-      categorieid: ['', Validators.required],
-      imgUrl: ['', Validators.required]
+      nom: [data.element, Validators.required],
+      quantite: [data.qt, Validators.required],
+      prixunite: [data.pr, Validators.required],
+      categorieid: [data.el, Validators.required],
+      imgUrl: [data.img, Validators.required]
     });
    
   }
