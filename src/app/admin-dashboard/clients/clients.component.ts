@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,ViewChild,OnInit ,ChangeDetectorRef} from '@angular/core';
+import { ClientsService } from './clients.service';
+import { MatTableDataSource } from '@angular/material/table';
+import {MatPaginator, MatPaginatorDefaultOptions} from '@angular/material/paginator';
 export interface Element {
   userid : string;
   nom: string;
@@ -12,37 +15,42 @@ export interface Element {
 })
 
 export class ClientsComponent {
-  displayedColumns: string[] = [ 'id','nom','email','telephone','actions'];
-users : Array<any> =[
-  {
-    userid : "653222655659656526",
-    nom :"hadil",
-    email :"hadil25@gmail.com",
-    telephone : "25320636"
-  },
-  {
-    userid : "653222655659655822",
-    nom :"rania",
-    email :"hadi29@gmail.com",
-    telephone : "25320966"
-  },
-  {
-    userid : "653222523659656526",
-    nom :"ali",
-    email :"hadilpl@gmail.com",
-    telephone : "25620666"
-  },
-  {
-    userid : "653222657889656526",
-    nom :"amir",
-    email :"hadilg5@gmail.com",
-    telephone : "25820666"
-  },
-  {
-    userid : "653263255659656526",
-    nom :"adel",
-    email :"hadill5@gmail.com",
-    telephone : "25360666"
-  },
-];
+  displayedColumns: string[] = [ 'iduser','nom','email','telephone','actions'];
+users : any;
+public dataSource : any = [];
+constructor(private userservice: ClientsService) {
+}
+ngOnInit() {
+    
+  this.getclients();
+}
+@ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
+applyFilter(filterValue: string) {
+    
+  this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+getclients(): void {
+  
+  this.userservice.getuser()
+    .subscribe(
+      users => {
+        this.users = users;
+        this.dataSource = new MatTableDataSource(Object.values(users)); 
+        this.dataSource.paginator = this.paginator;
+        console.log(this.users);
+       
+      });
+
+}
+update(id : any){
+  
+  this.userservice.updateuser(id,"bla").subscribe(
+    () => {
+      
+      window.location.reload();
+    },
+    (error) => {
+    }
+  );
+}
 }
